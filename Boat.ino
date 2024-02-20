@@ -72,11 +72,12 @@ void loop() {
     //go
     case 2:
 
-      pos.copy( currentPos );
-      pos.rotate( adjustAngle );
+      /* Read accelerometer data to update position */
 
-      //set ideal vector from angle of position
-      ideal.setFromAngle( pos.angle() );
+      pos.copy( currentPos );
+      pos.rotate( adjustAngle ); //adjust with calibration axis
+
+      ideal.setFromAngle( pos.angle() ); //set ideal vector from angle of position
 
       ideal.x *= POND_A;
       ideal.y *= POND_B;
